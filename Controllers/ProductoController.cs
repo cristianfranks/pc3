@@ -76,5 +76,9 @@ namespace pc3.Controllers
          public IActionResult EditarCategoriaConfirmacion() {
             return View();
         }
+        public IActionResult Lista() {
+            var productos = _context.Productos.OrderBy(x => x.NombreProducto).ToList();
+            return View(productos);
+        }
     }
 }
