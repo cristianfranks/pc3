@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using pc3.Models;
 
 namespace pc3
 {
@@ -23,6 +25,9 @@ namespace pc3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var cadenaConextion = "server=localhost;user=root;password=931293357.321;database=producto";
+            var mysqlVersion = new MySqlServerVersion("5.7");
+            services.AddDbContext<ProductoContext>(dco => dco.UseMySql(cadenaConextion, mysqlVersion));  
             services.AddControllersWithViews();
         }
 

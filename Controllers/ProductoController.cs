@@ -17,8 +17,8 @@ namespace pc3.Controllers
             return View(productos);
         }
         public IActionResult Categorias() {
-            var categoriasproductos = _context.Categorias.OrderBy(p => p.NombreCategoria).ToList();
-            return View(categoriasproductos);
+            var categorias = _context.Categorias.OrderBy(p => p.NombreCategoria).ToList();
+            return View(categorias);
         }
         public IActionResult NuevoProducto() {
             ViewBag.Categorias = _context.Categorias.ToList().Select(p => new SelectListItem(p.NombreCategoria, p.Id.ToString()));

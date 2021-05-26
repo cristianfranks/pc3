@@ -1,0 +1,12 @@
+@model Categoria
+
+<h1>Editar Categoria</h1>
+
+<form action="" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="NombreCategoria"></label>
+        <input asp-for="NombreCategoria" type="text" class="form-control">
+    </div>
+    <button class="btn btn-primary">Editar</button>
+</form>
